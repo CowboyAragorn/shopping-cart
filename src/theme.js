@@ -8,8 +8,8 @@ const theme = {
     offWhite: "#EDF0EE",
   },
   sizing: {
-    mainHeight: "80vh",
-    navBarHeight: "15vh",
+    mainHeight: "83vh",
+    navBarHeight: "12vh",
     footerHeight: "5vh",
   },
   spacing: {
