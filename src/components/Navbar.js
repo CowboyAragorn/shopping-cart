@@ -5,7 +5,7 @@ import styled from "styled-components";
 const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
-  background-color: gray;
+  background-color: ${(props) => props.theme.colors.middleGreen};
   width: 100%;
   height: 10vh;
 `;
@@ -14,10 +14,11 @@ const TitleContainer = styled.div`
   align-items: center;
   justify-content: center;
 `;
-const StoreTitle = styled.div`
+const StoreTitle = styled.h1`
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 3rem;
   padding-left: 25px;
 `;
 const LinksContainer = styled.ul`
@@ -51,7 +52,7 @@ const Navbar = () => {
   return (
     <Nav>
       <TitleContainer>
-        <StoreTitle>Store Name</StoreTitle>
+        <StoreTitle>Outdoor General</StoreTitle>
       </TitleContainer>
       <LinksContainer>
         <StyledListItem>
