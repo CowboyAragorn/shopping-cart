@@ -8,15 +8,21 @@ const FooterWrapper = styled.div`
   justify-content: left;
   width: 100%;
   height: 5vh;
-  background-color: ${(props) => props.theme.colors.offWhite};
+  background-color: black;
+  color: white;
 `;
 
 const TextWrapper = styled.div`
   display: flex;
   margin: 0;
+  gap: 10px;
   align-items: center;
   justify-content: left;
   margin-left: ${(props) => props.theme.spacing.marginLeft};
+`;
+
+const StyledAnchor = styled.a`
+  color: white;
 `;
 
 function Footer() {
@@ -27,13 +33,13 @@ function Footer() {
           <p id="footerName" style={{ margin: 0 }}>
             Created by CowboyAragorn @
           </p>
-          <a
+          <StyledAnchor
             id="footerLink"
             target={"_blank"}
             href="https://github.com/CowboyAragorn"
           >
             https://github.com/CowboyAragorn
-          </a>
+          </StyledAnchor>
         </TextWrapper>
       </FooterWrapper>
     </>

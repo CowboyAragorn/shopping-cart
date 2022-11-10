@@ -5,7 +5,8 @@ import styled from "styled-components";
 const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
-  background-color: ${(props) => props.theme.colors.offWhite};
+  background-color: black;
+  color: white;
   width: 100%;
   height: ${(props) => props.theme.sizing.navBarHeight};
 `;
@@ -29,21 +30,19 @@ const LinksContainer = styled.ul`
   padding-right: 25px;
 `;
 const StyledListItem = styled.li`
-  ${(props) => props.theme.colors.offWhite};
   list-style: none;
-
   &:hover {
     cursor: pointer;
-    border-bottom: solid 3pt black;
+    border-bottom: solid 3pt ${(props) => props.theme.colors.middleGreen};
   }
 `;
 const StyledLink = styled(NavLink)`
   display: inline-block;
   font-size: 1.8rem;
   padding: 20px;
+  color: white;
   height: 100%;
   width: 100%;
-  color: black;
   font-weight: bold;
   text-decoration: none;
 `;
@@ -54,7 +53,7 @@ const Navbar = () => {
   return (
     <Nav>
       <TitleContainer>
-        <StoreTitle>Get Outdoors</StoreTitle>
+        <StoreTitle>The Outdoors Co.</StoreTitle>
       </TitleContainer>
       <LinksContainer>
         <StyledListItem>
