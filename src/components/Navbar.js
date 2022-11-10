@@ -5,9 +5,9 @@ import styled from "styled-components";
 const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
-  background-color: ${(props) => props.theme.colors.middleGreen};
+  background-color: ${(props) => props.theme.colors.offWhite};
   width: 100%;
-  height: 10vh;
+  height: ${(props) => props.theme.sizing.navBarHeight};
 `;
 const TitleContainer = styled.div`
   display: flex;
@@ -19,31 +19,33 @@ const StoreTitle = styled.h1`
   align-items: center;
   justify-content: center;
   font-size: 3rem;
-  padding-left: 25px;
+  padding-left: ${(props) => props.theme.spacing.marginLeft};
 `;
 const LinksContainer = styled.ul`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
+  gap: 20px;
   padding-right: 25px;
 `;
 const StyledListItem = styled.li`
-  background-color: red;
+  ${(props) => props.theme.colors.offWhite};
   list-style: none;
-  border-radius: 15px;
+
   &:hover {
     cursor: pointer;
-    background-color: lightcoral;
+    border-bottom: solid 3pt black;
   }
 `;
 const StyledLink = styled(NavLink)`
   display: inline-block;
+  font-size: 1.8rem;
   padding: 20px;
   height: 100%;
   width: 100%;
   color: black;
   font-weight: bold;
+  text-decoration: none;
 `;
 
 const CartDisplay = styled.div``;
@@ -52,7 +54,7 @@ const Navbar = () => {
   return (
     <Nav>
       <TitleContainer>
-        <StoreTitle>Outdoor General</StoreTitle>
+        <StoreTitle>Get Outdoors</StoreTitle>
       </TitleContainer>
       <LinksContainer>
         <StyledListItem>

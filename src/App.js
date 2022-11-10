@@ -6,6 +6,7 @@ import Shop from "./components/Shop";
 import Contact from "./components/Contact";
 import { ThemeProvider } from "styled-components";
 import theme from "./theme";
+import Footer from "./components/Footer";
 
 //React router changes page based on user selected page
 
@@ -20,6 +21,7 @@ function App() {
             <Route path="/shop" element={<Shop />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
+          <Footer />
         </BrowserRouter>
       </ThemeProvider>
     </>
