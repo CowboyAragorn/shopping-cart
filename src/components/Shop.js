@@ -14,14 +14,22 @@ const ShopWrapper = styled.div`
 `;
 
 const ShopItemsGrid = styled.div`
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  background-color: ${(props) => props.theme.colors.offWhite};
+  gap: 100px;
+  align-items: center;
+  justify-content: center;
+
+  /* display: grid;
   width: 100%;
   background-color: ${(props) => props.theme.colors.offWhite};
   grid-template-columns: 1fr 1fr 1fr;
   align-content: center;
   justify-items: center;
   justify-self: center;
-  row-gap: 100px;
+  row-gap: 100px; */
 `;
 
 const ItemContainer = styled.div`
