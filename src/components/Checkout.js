@@ -105,11 +105,11 @@ const QuantityBtn = styled.button`
 const PaymentContainer = styled.div`
   position: sticky;
   display: flex;
+  top: 15px;
   flex-direction: column;
   justify-content: center;
   align-self: flex-start;
   width: 30%;
-  height: fit-content;
   padding: 15px;
   margin-right: 15px;
   background-color: white;
