@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import CartSVG from "../images/shopping-cart";
 
 const Nav = styled.nav`
   display: flex;
@@ -46,10 +47,29 @@ const StyledLink = styled(NavLink)`
   font-weight: bold;
   text-decoration: none;
 `;
+const StyledCartLink = styled(NavLink)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  font-size: 1.8rem;
+  padding: 20px;
+  color: white;
+  height: 45%;
+  width: 100%;
+  font-weight: bold;
+  text-decoration: none;
+  &:hover {
+    cursor: pointer;
+    border-bottom: solid 3pt ${(props) => props.theme.colors.middleGreen};
+  }
+`;
+const CartDisplay = styled.div`
+  color: white;
+  font-size: 1.8rem;
+`;
 
-const CartDisplay = styled.div``;
-
-const Navbar = () => {
+const Navbar = (props) => {
   return (
     <Nav>
       <TitleContainer>
@@ -65,7 +85,10 @@ const Navbar = () => {
         <StyledListItem>
           <StyledLink to="/contact">Contact</StyledLink>
         </StyledListItem>
-        <CartDisplay>0 in Cart</CartDisplay>
+        <StyledCartLink>
+          <CartSVG />
+          <CartDisplay>{props.cart.length}</CartDisplay>
+        </StyledCartLink>
       </LinksContainer>
     </Nav>
   );

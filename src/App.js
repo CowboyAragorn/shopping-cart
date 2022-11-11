@@ -1,4 +1,5 @@
 import "./App.css";
+import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
@@ -14,15 +15,17 @@ const Layout = styled.div``;
 //React router changes page based on user selected page
 
 function App() {
+  const [cart, setCart] = useState([]);
+
   return (
     <>
       <Layout>
         <ThemeProvider theme={theme}>
           <BrowserRouter>
-            <Navbar></Navbar>
+            <Navbar cart={cart}></Navbar>
             <Routes>
               <Route exact path="/" element={<Home />} />
-              <Route path="/shop" element={<Shop />} />
+              <Route path="/shop" element={<Shop cart={cart} />} />
               <Route path="/contact" element={<Contact />} />
             </Routes>
             <Footer />
