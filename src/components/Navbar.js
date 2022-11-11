@@ -87,7 +87,7 @@ const Navbar = (props) => {
         <StyledListItem>
           <StyledLink to="/contact">Contact</StyledLink>
         </StyledListItem>
-        <StyledCartLink>
+        <StyledCartLink to="/checkout">
           <CartSVG />
           <CartDisplay>{props.cart.length}</CartDisplay>
         </StyledCartLink>

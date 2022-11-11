@@ -9,6 +9,7 @@ import { ThemeProvider } from "styled-components";
 import theme from "./theme";
 import Footer from "./components/Footer";
 import styled from "styled-components";
+import Checkout from "./components/Checkout";
 
 const Layout = styled.div``;
 
@@ -30,6 +31,10 @@ function App() {
                 element={<Shop cart={cart} setCart={setCart} />}
               />
               <Route path="/contact" element={<Contact />} />
+              <Route
+                path="/checkout"
+                element={<Checkout cart={cart} setCart={setCart} />}
+              />
             </Routes>
             <Footer />
           </BrowserRouter>
