@@ -6,45 +6,80 @@ const ShopWrapper = styled.div`
   display: flex;
   flex-grow: 1;
   height: ${(props) => props.theme.sizing.mainHeight};
+  height: 100%;
+  width: 100%;
   background-color: ${(props) => props.theme.colors.offWhite};
-  background-color: white;
-  overflow: scroll;
+  padding-top: 25px;
+  padding-bottom: 25px;
 `;
 
-const ShopItemsWrapper = styled.div`
+const ShopItemsGrid = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  background-color: ${(props) => props.theme.colors.offWhite};
+  grid-template-columns: 1fr 1fr 1fr;
   align-content: center;
   justify-items: center;
   justify-self: center;
+  row-gap: 100px;
 `;
 
 const ItemContainer = styled.div`
   display: flex;
+  background-color: white;
   flex-direction: column;
-  width: 300px;
+  align-items: center;
+  gap: 10px;
+  width: 350px;
+  border: 1pt lightgrey solid;
+  padding: 15px;
+  margin: 0;
+  border-radius: 10px;
+`;
+const ItemImage = styled.img`
+  width: 350px;
+  height: 450px;
+  margin: 0;
+`;
+const ItemName = styled.p`
+  font-size: 1.5rem;
+  margin: 0;
+`;
+const ItemPrice = styled.p`
+  font-size: 1.5rem;
   margin: 0;
 `;
 
-const ItemImage = styled.img`
-  width: 200px;
-  height: 150px;
+const StyledButton = styled.button`
+  padding: 12px;
+  width: 60%;
+  font-size: 1.1rem;
+  border-radius: 15px;
+  border: none;
+  background-color: ${(props) => props.theme.colors.middleGreen};
+  color: black;
+  font-weight: bold;
+  &:hover {
+    cursor: pointer;
+    background-color: #356736;
+  }
 `;
 
 const Shop = () => {
   return (
     <ShopWrapper>
-      <ShopItemsWrapper>
+      <ShopItemsGrid>
         {shopItems.map((item) => {
           return (
             <ItemContainer>
+              <ItemName>{item.name}</ItemName>
               <ItemImage src={item.img}></ItemImage>
-              <div>{item.name}</div>
-              <div>{item.price}</div>
+              <ItemPrice>${item.price}</ItemPrice>
+              <StyledButton>Add to Cart</StyledButton>
             </ItemContainer>
           );
         })}
-      </ShopItemsWrapper>
+      </ShopItemsGrid>
     </ShopWrapper>
   );
 };

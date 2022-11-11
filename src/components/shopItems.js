@@ -1,42 +1,42 @@
 const shopItems = [
   {
     name: "Soto Amicus Cookset Combo",
-    price: 45,
+    price: 44.99,
     img: require("../images/cookset.jpeg"),
   },
   {
     name: "Granite Gear Crown 2 Pack",
-    price: 250,
+    price: 249.99,
     img: require("../images/pack.jpg"),
   },
   {
     name: "Frogg Toggs Classic Rain Jacket",
-    price: 35,
+    price: 34.99,
     img: require("../images/rainJacket.jpg"),
   },
   {
     name: "Ursack Major Bear Sack - 10 Liters",
-    price: 100,
+    price: 99.99,
     img: require("../images/bearSack.jpeg"),
   },
   {
     name: "Katadyn BeFree 1.0: Water Filter Bottle",
-    price: 50,
+    price: 49.99,
     img: require("../images/waterFilter.jpeg"),
   },
   {
     name: "Klymit Static V Sleeping Pad",
-    price: 60,
+    price: 59.99,
     img: require("../images/sleepPad.jpg"),
   },
   {
     name: "Magma 15 Sleeping Bag",
-    price: 400,
+    price: 399.99,
     img: require("../images/sleepBag.jpeg"),
   },
   {
     name: "Quarter Dome SL 1 Tent",
-    price: 230,
+    price: 229.99,
     img: require("../images/tent.jpeg"),
   },
 ];
