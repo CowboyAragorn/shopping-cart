@@ -9,6 +9,7 @@ const theme = {
   },
   sizing: {
     mainHeight: "83vh",
+    mainHeightPercent: "83%",
     navBarHeight: "12vh",
     footerHeight: "5vh",
   },

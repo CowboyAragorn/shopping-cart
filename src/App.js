@@ -11,8 +11,6 @@ import Footer from "./components/Footer";
 import styled from "styled-components";
 import Checkout from "./components/Checkout";
 
-const Layout = styled.div``;
-
 //React router changes page based on user selected page
 
 function App() {
@@ -20,26 +18,24 @@ function App() {
 
   return (
     <>
-      <Layout>
-        <ThemeProvider theme={theme}>
-          <BrowserRouter>
-            <Navbar cart={cart}></Navbar>
-            <Routes>
-              <Route exact path="/" element={<Home />} />
-              <Route
-                path="/shop"
-                element={<Shop cart={cart} setCart={setCart} />}
-              />
-              <Route path="/contact" element={<Contact />} />
-              <Route
-                path="/checkout"
-                element={<Checkout cart={cart} setCart={setCart} />}
-              />
-            </Routes>
-            <Footer />
-          </BrowserRouter>
-        </ThemeProvider>
-      </Layout>
+      <ThemeProvider theme={theme}>
+        <BrowserRouter>
+          <Navbar cart={cart}></Navbar>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route
+              path="/shop"
+              element={<Shop cart={cart} setCart={setCart} />}
+            />
+            <Route path="/contact" element={<Contact />} />
+            <Route
+              path="/checkout"
+              element={<Checkout cart={cart} setCart={setCart} />}
+            />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </ThemeProvider>
     </>
   );
 }

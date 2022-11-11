@@ -3,10 +3,7 @@ import styled from "styled-components";
 import shopItems from "./shopItems";
 
 const ShopWrapper = styled.div`
-  display: flex;
-  flex-grow: 1;
-  height: ${(props) => props.theme.sizing.mainHeight};
-  height: 100%;
+  min-height: 83%;
   width: 100%;
   background-color: ${(props) => props.theme.colors.offWhite};
   padding-top: 25px;
@@ -74,8 +71,17 @@ const StyledButton = styled.button`
 `;
 
 const handleAddToCart = (props, item) => {
+  let cartCopy = [...props.cart];
   console.log(item);
-  props.setCart([...props.cart, item]);
+  let filteredResult = cartCopy.filter((e) => e.name === item.name);
+
+  if (filteredResult.length === 0) {
+    cartCopy.push(item);
+    cartCopy[cartCopy.length - 1].count++;
+  } else {
+    filteredResult[0].count = filteredResult[0].count + 1;
+  }
+  props.setCart(cartCopy);
   //consoleLog();
 };
 

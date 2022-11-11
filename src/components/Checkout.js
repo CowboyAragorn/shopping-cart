@@ -3,17 +3,24 @@ import styled from "styled-components";
 const Checkout = (props) => {
   const CheckoutWrapper = styled.div`
     display: flex;
-    align-items: center;
-    justify-content: center;
-    height: ${(props) => props.theme.sizing.mainHeight};
+    min-height: 83%;
     width: 100%;
     background-color: ${(props) => props.theme.colors.offWhite};
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: ${(props) => props.theme.colors.offWhite};
+    align-items: center;
+    justify-content: center;
   `;
 
   const TotalContainer = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     background-color: white;
     width: 75%;
-    height: 75%;
   `;
   const TotalHeader = styled.h3`
     font-size: 2rem;
@@ -77,6 +84,7 @@ const Checkout = (props) => {
 
   const removeItem = (props, i) => {
     const cartCopy = [...props.cart];
+    cartCopy[i].count = 0;
     cartCopy.splice(i, 1);
     props.setCart(cartCopy);
   };
@@ -92,6 +100,7 @@ const Checkout = (props) => {
               <ItemInfoWrapper>
                 <ItemTitle>{item.name}</ItemTitle>
                 <ItemTitle>{item.price}</ItemTitle>
+                <ItemTitle>{item.count}</ItemTitle>
                 <RemoveBtn onClick={removeItem.bind(this, props, i)}>
                   Remove
                 </RemoveBtn>

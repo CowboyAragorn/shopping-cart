@@ -71,7 +71,16 @@ const CartDisplay = styled.div`
   font-size: 1.8rem;
 `;
 
+const cartCount = (props) => {
+  let count = 0;
+  props.cart.map((item) => (count = count + item.count));
+  return count;
+};
+
 const Navbar = (props) => {
+  //have to declare as variable and run function prior to mounting,
+  //otherwise react will say it can't mount a function as a child
+  let totalInCart = cartCount(props);
   return (
     <Nav>
       <TitleContainer>
@@ -89,7 +98,7 @@ const Navbar = (props) => {
         </StyledListItem>
         <StyledCartLink to="/checkout">
           <CartSVG />
-          <CartDisplay>{props.cart.length}</CartDisplay>
+          <CartDisplay>{totalInCart}</CartDisplay>
         </StyledCartLink>
       </LinksContainer>
     </Nav>
