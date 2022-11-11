@@ -16,10 +16,12 @@ const TitleContainer = styled.div`
   align-items: center;
   justify-content: center;
 `;
-const StoreTitle = styled.h1`
+const StoreTitle = styled(NavLink)`
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white;
+  text-decoration: none;
   font-size: 3rem;
   padding-left: ${(props) => props.theme.spacing.marginLeft};
 `;
@@ -73,7 +75,7 @@ const Navbar = (props) => {
   return (
     <Nav>
       <TitleContainer>
-        <StoreTitle>The Outdoors Co.</StoreTitle>
+        <StoreTitle to="/">The Outdoors Co.</StoreTitle>
       </TitleContainer>
       <LinksContainer>
         <StyledListItem>

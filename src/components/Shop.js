@@ -73,17 +73,25 @@ const StyledButton = styled.button`
   }
 `;
 
-const Shop = () => {
+const handleAddToCart = (props, item) => {
+  console.log(item);
+  props.setCart([...props.cart, item]);
+  //consoleLog();
+};
+
+const Shop = (props) => {
   return (
     <ShopWrapper>
       <ShopItemsGrid>
-        {shopItems.map((item) => {
+        {shopItems.map((item, i) => {
           return (
-            <ItemContainer>
+            <ItemContainer key={i}>
               <ItemName>{item.name}</ItemName>
               <ItemImage src={item.img}></ItemImage>
               <ItemPrice>${item.price}</ItemPrice>
-              <StyledButton>Add to Cart</StyledButton>
+              <StyledButton onClick={handleAddToCart.bind(this, props, item)}>
+                Add to Cart
+              </StyledButton>
             </ItemContainer>
           );
         })}

@@ -25,7 +25,10 @@ function App() {
             <Navbar cart={cart}></Navbar>
             <Routes>
               <Route exact path="/" element={<Home />} />
-              <Route path="/shop" element={<Shop cart={cart} />} />
+              <Route
+                path="/shop"
+                element={<Shop cart={cart} setCart={setCart} />}
+              />
               <Route path="/contact" element={<Contact />} />
             </Routes>
             <Footer />
