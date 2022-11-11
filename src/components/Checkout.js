@@ -41,8 +41,20 @@ const ItemInfoWrapper = styled.div`
   grid-template-columns: 1fr 1fr;
   gap: 20px;
   width: 70%;
-  border: 1pt solid black;
   align-items: flex-end;
+  justify-items: center;
+  border: 1pt solid black;
+`;
+const ItemFlexContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+`;
+const QuanitityFlexContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 5px;
 `;
 const ItemImage = styled.img`
   width: 100px;
@@ -71,20 +83,22 @@ const CheckoutBtn = styled.button`
     padding: 11px;
   }
 `;
-const RemoveBtn = styled.button`
-  padding: 10px;
-  font-size: 1rem;
-  border-radius: 5px;
-  height: 40px;
-  width: 100px;
-  border: none;
-  color: black;
-  background-color: lightcoral;
+
+const QuantityBtn = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  color: ${(props) => props.theme.colors.middleGreen};
   font-weight: bold;
-  text-decoration: none;
+  font-size: 1rem;
+  padding: 10px;
+  height: 15px;
+  width: 15px;
+  border: 1pt solid black;
+  border-radius: 50%;
   &:hover {
     cursor: pointer;
-    background-color: red;
   }
 `;
 
@@ -96,6 +110,7 @@ const PaymentContainer = styled.div`
   align-self: flex-start;
   width: 30%;
   height: fit-content;
+  padding: 15px;
   margin-right: 15px;
   background-color: white;
 `;
@@ -122,6 +137,23 @@ const calcTotal = (props) => {
   return Math.floor(total * 100) / 100;
 };
 
+const decrement = (props, i) => {
+  let cartCopy = [...props.cart];
+  if (cartCopy[i].count === 1) {
+    removeItem(props, i);
+    return;
+  } else {
+    cartCopy[i].count--;
+    props.setCart(cartCopy);
+  }
+};
+
+const increment = (props, i) => {
+  let cartCopy = [...props.cart];
+  cartCopy[i].count++;
+  props.setCart(cartCopy);
+};
+
 const Checkout = (props) => {
   const totalCalc = calcTotal(props);
   return (
@@ -130,19 +162,27 @@ const Checkout = (props) => {
         <StyledHeader>Your Shopping Cart</StyledHeader>
         <ItemGrid>
           {props.cart.map((item, i) => {
+            const itemTotalBasic = item.count * item.price;
+            const itemTotalRounded = Math.floor(itemTotalBasic * 100) / 100;
             return (
               <ItemInfoWrapper>
-                <div>
+                <ItemFlexContainer>
                   <ItemImage src={item.img}></ItemImage>
                   <ItemTitle>{item.name}</ItemTitle>
-                </div>
-                <div>
-                  <ItemTitle>{item.price}</ItemTitle>
-                  <ItemTitle>{item.count}</ItemTitle>
-                  <RemoveBtn onClick={removeItem.bind(this, props, i)}>
-                    Remove
-                  </RemoveBtn>
-                </div>
+                </ItemFlexContainer>
+                <ItemFlexContainer>
+                  <ItemTitle>${item.price}</ItemTitle>
+                  <QuanitityFlexContainer>
+                    <QuantityBtn onClick={decrement.bind(this, props, i)}>
+                      -
+                    </QuantityBtn>
+                    <ItemTitle>{item.count}</ItemTitle>
+                    <QuantityBtn onClick={increment.bind(this, props, i)}>
+                      +
+                    </QuantityBtn>
+                  </QuanitityFlexContainer>
+                  <ItemTitle>Item total: {itemTotalRounded}</ItemTitle>
+                </ItemFlexContainer>
               </ItemInfoWrapper>
             );
           })}
