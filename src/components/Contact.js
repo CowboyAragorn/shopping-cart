@@ -3,18 +3,20 @@ import styled from "styled-components";
 
 const ContactWrapper = styled.div`
   display: flex;
-  height: ${(props) => props.theme.sizing.mainHeight};
   background-color: ${(props) => props.theme.colors.offWhite};
   justify-content: center;
   min-height: 83%;
+  width: 100%;
 `;
 
 const ContactFormContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   border: 1pt solid black;
   width: 50%;
   align-items: center;
+  height: fit-content;
   justify-content: flex-start;
   gap: 40px;
   background-color: ${(props) => props.theme.colors.middleGreen};

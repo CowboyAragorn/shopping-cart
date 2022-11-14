@@ -8,7 +8,7 @@ const FooterWrapper = styled.div`
   align-items: center;
   justify-content: left;
   width: 100%;
-  height: ${(props) => props.theme.sizing.footerHeight};
+  min-height: ${(props) => props.theme.sizing.footerHeight};
   background-color: black;
   color: white;
 `;

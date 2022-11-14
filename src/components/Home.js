@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 
 const HomeContainer = styled.div`
   display: flex;
-  height: ${(props) => props.theme.sizing.mainHeight};
+  min-height: ${(props) => props.theme.sizing.mainHeight};
   background-image: url(${mtBackground});
   background-repeat: no-repeat;
   background-size: cover;
