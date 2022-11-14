@@ -6,6 +6,7 @@ const ContactWrapper = styled.div`
   height: ${(props) => props.theme.sizing.mainHeight};
   background-color: ${(props) => props.theme.colors.offWhite};
   justify-content: center;
+  min-height: 83%;
 `;
 
 const ContactFormContainer = styled.div`
