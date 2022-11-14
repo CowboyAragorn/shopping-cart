@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/shopping-cart/static/css/main.bc4428da.css",
-    "main.js": "/shopping-cart/static/js/main.ed5b668f.js",
+    "main.js": "/shopping-cart/static/js/main.c4bdb950.js",
     "static/media/hikingStock.jpeg": "/shopping-cart/static/media/hikingStock.16023f588cce674ba26e.jpeg",
     "static/media/pack.jpg": "/shopping-cart/static/media/pack.4dbd59a1a36f83c87f89.jpg",
     "static/media/bearSack.jpeg": "/shopping-cart/static/media/bearSack.491b4e1c97e50259e3ff.jpeg",
@@ -13,10 +13,10 @@
     "static/media/sleepBag.jpeg": "/shopping-cart/static/media/sleepBag.be2cd04410e3eae25793.jpeg",
     "index.html": "/shopping-cart/index.html",
     "main.bc4428da.css.map": "/shopping-cart/static/css/main.bc4428da.css.map",
-    "main.ed5b668f.js.map": "/shopping-cart/static/js/main.ed5b668f.js.map"
+    "main.c4bdb950.js.map": "/shopping-cart/static/js/main.c4bdb950.js.map"
   },
   "entrypoints": [
     "static/css/main.bc4428da.css",
-    "static/js/main.ed5b668f.js"
+    "static/js/main.c4bdb950.js"
   ]
 }
