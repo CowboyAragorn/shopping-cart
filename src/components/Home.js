@@ -8,7 +8,8 @@ const HomeContainer = styled.div`
   height: ${(props) => props.theme.sizing.mainHeight};
   background-image: url(${mtBackground});
   background-repeat: no-repeat;
-  background-size: 100% 90vh;
+  background-size: cover;
+  background-position: 25% 25%;
   box-shadow: 0pt 30px;
 `;
 

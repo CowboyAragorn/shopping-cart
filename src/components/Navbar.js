@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import CartSVG from "../images/shopping-cart";
 
 const Nav = styled.nav`
   display: flex;
@@ -15,10 +16,12 @@ const TitleContainer = styled.div`
   align-items: center;
   justify-content: center;
 `;
-const StoreTitle = styled.h1`
+const StoreTitle = styled(NavLink)`
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white;
+  text-decoration: none;
   font-size: 3rem;
   padding-left: ${(props) => props.theme.spacing.marginLeft};
 `;
@@ -46,14 +49,42 @@ const StyledLink = styled(NavLink)`
   font-weight: bold;
   text-decoration: none;
 `;
+const StyledCartLink = styled(NavLink)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  font-size: 1.8rem;
+  padding: 20px;
+  color: white;
+  height: 45%;
+  width: 100%;
+  font-weight: bold;
+  text-decoration: none;
+  &:hover {
+    cursor: pointer;
+    border-bottom: solid 3pt ${(props) => props.theme.colors.middleGreen};
+  }
+`;
+const CartDisplay = styled.div`
+  color: white;
+  font-size: 1.8rem;
+`;
 
-const CartDisplay = styled.div``;
+const cartCount = (props) => {
+  let count = 0;
+  props.cart.map((item) => (count = count + item.count));
+  return count;
+};
 
-const Navbar = () => {
+const Navbar = (props) => {
+  //have to declare as variable and run function prior to mounting,
+  //otherwise react will say it can't mount a function as a child
+  let totalInCart = cartCount(props);
   return (
     <Nav>
       <TitleContainer>
-        <StoreTitle>The Outdoors Co.</StoreTitle>
+        <StoreTitle to="/">The Outdoors Co.</StoreTitle>
       </TitleContainer>
       <LinksContainer>
         <StyledListItem>
@@ -65,7 +96,10 @@ const Navbar = () => {
         <StyledListItem>
           <StyledLink to="/contact">Contact</StyledLink>
         </StyledListItem>
-        <CartDisplay>0 in Cart</CartDisplay>
+        <StyledCartLink to="/checkout">
+          <CartSVG />
+          <CartDisplay>{totalInCart}</CartDisplay>
+        </StyledCartLink>
       </LinksContainer>
     </Nav>
   );

@@ -1,4 +1,5 @@
 import "./App.css";
+import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
@@ -7,28 +8,33 @@ import Contact from "./components/Contact";
 import { ThemeProvider } from "styled-components";
 import theme from "./theme";
 import Footer from "./components/Footer";
-import styled from "styled-components";
-
-const Layout = styled.div``;
+import Checkout from "./components/checkout/Checkout";
 
 //React router changes page based on user selected page
 
 function App() {
+  const [cart, setCart] = useState([]);
+
   return (
     <>
-      <Layout>
-        <ThemeProvider theme={theme}>
-          <BrowserRouter>
-            <Navbar></Navbar>
-            <Routes>
-              <Route exact path="/" element={<Home />} />
-              <Route path="/shop" element={<Shop />} />
-              <Route path="/contact" element={<Contact />} />
-            </Routes>
-            <Footer />
-          </BrowserRouter>
-        </ThemeProvider>
-      </Layout>
+      <ThemeProvider theme={theme}>
+        <BrowserRouter>
+          <Navbar cart={cart}></Navbar>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route
+              path="/shop"
+              element={<Shop cart={cart} setCart={setCart} />}
+            />
+            <Route path="/contact" element={<Contact />} />
+            <Route
+              path="/checkout"
+              element={<Checkout cart={cart} setCart={setCart} />}
+            />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </ThemeProvider>
     </>
   );
 }

@@ -3,10 +3,7 @@ import styled from "styled-components";
 import shopItems from "./shopItems";
 
 const ShopWrapper = styled.div`
-  display: flex;
-  flex-grow: 1;
-  height: ${(props) => props.theme.sizing.mainHeight};
-  height: 100%;
+  min-height: 83%;
   width: 100%;
   background-color: ${(props) => props.theme.colors.offWhite};
   padding-top: 25px;
@@ -45,6 +42,7 @@ const ItemContainer = styled.div`
   border-radius: 10px;
 `;
 const ItemImage = styled.img`
+  object-fit: contain;
   width: 350px;
   height: 450px;
   margin: 0;
@@ -73,17 +71,34 @@ const StyledButton = styled.button`
   }
 `;
 
-const Shop = () => {
+const handleAddToCart = (props, item) => {
+  let cartCopy = [...props.cart];
+  console.log(item);
+  let filteredResult = cartCopy.filter((e) => e.name === item.name);
+
+  if (filteredResult.length === 0) {
+    cartCopy.push(item);
+    cartCopy[cartCopy.length - 1].count++;
+  } else {
+    filteredResult[0].count = filteredResult[0].count + 1;
+  }
+  props.setCart(cartCopy);
+  //consoleLog();
+};
+
+const Shop = (props) => {
   return (
     <ShopWrapper>
       <ShopItemsGrid>
-        {shopItems.map((item) => {
+        {shopItems.map((item, i) => {
           return (
-            <ItemContainer>
+            <ItemContainer key={i}>
               <ItemName>{item.name}</ItemName>
               <ItemImage src={item.img}></ItemImage>
               <ItemPrice>${item.price}</ItemPrice>
-              <StyledButton>Add to Cart</StyledButton>
+              <StyledButton onClick={handleAddToCart.bind(this, props, item)}>
+                Add to Cart
+              </StyledButton>
             </ItemContainer>
           );
         })}
