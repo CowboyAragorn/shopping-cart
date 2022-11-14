@@ -42,6 +42,7 @@ const ItemContainer = styled.div`
   border-radius: 10px;
 `;
 const ItemImage = styled.img`
+  object-fit: contain;
   width: 350px;
   height: 450px;
   margin: 0;

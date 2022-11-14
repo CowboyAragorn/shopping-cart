@@ -46,7 +46,7 @@ const ItemInfoWrapper = styled.div`
   width: 70%;
   align-items: flex-end;
   justify-items: center;
-  border: 1pt solid black;
+  border-bottom: 1pt solid black;
 `;
 const ItemFlexContainer = styled.div`
   display: flex;
@@ -60,6 +60,7 @@ const QuanitityFlexContainer = styled.div`
   gap: 5px;
 `;
 const ItemImage = styled.img`
+  object-fit: contain;
   width: 100px;
   height: 100px;
   margin: 0;
