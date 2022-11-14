@@ -133,6 +133,8 @@ const increment = (props, i) => {
   props.setCart(cartCopy);
 };
 
+//check if the cart is empty, if it is not, map the items of the cart onto the display
+//and update checkout information
 const Checkout = (props) => {
   const totalCalc = calcTotal(props);
   return (
@@ -140,31 +142,35 @@ const Checkout = (props) => {
       <CartItemsContainer>
         <StyledHeader>Your Shopping Cart</StyledHeader>
         <ItemGrid>
-          {props.cart.map((item, i) => {
-            const itemTotalBasic = item.count * item.price;
-            const itemTotalRounded = Math.floor(itemTotalBasic * 100) / 100;
-            return (
-              <ItemInfoWrapper>
-                <ItemFlexContainer>
-                  <ItemImage src={item.img}></ItemImage>
-                  <ItemTitle>{item.name}</ItemTitle>
-                </ItemFlexContainer>
-                <ItemFlexContainer>
-                  <ItemTitle>${item.price}</ItemTitle>
-                  <QuanitityFlexContainer>
-                    <QuantityBtn onClick={decrement.bind(this, props, i)}>
-                      -
-                    </QuantityBtn>
-                    <ItemTitle>{item.count}</ItemTitle>
-                    <QuantityBtn onClick={increment.bind(this, props, i)}>
-                      +
-                    </QuantityBtn>
-                  </QuanitityFlexContainer>
-                  <ItemTitle>Item total: {itemTotalRounded}</ItemTitle>
-                </ItemFlexContainer>
-              </ItemInfoWrapper>
-            );
-          })}
+          {props.cart.length > 0 ? (
+            props.cart.map((item, i) => {
+              const itemTotalBasic = item.count * item.price;
+              const itemTotalRounded = Math.floor(itemTotalBasic * 100) / 100;
+              return (
+                <ItemInfoWrapper>
+                  <ItemFlexContainer>
+                    <ItemImage src={item.img}></ItemImage>
+                    <ItemTitle>{item.name}</ItemTitle>
+                  </ItemFlexContainer>
+                  <ItemFlexContainer>
+                    <ItemTitle>${item.price}</ItemTitle>
+                    <QuanitityFlexContainer>
+                      <QuantityBtn onClick={decrement.bind(this, props, i)}>
+                        -
+                      </QuantityBtn>
+                      <ItemTitle>{item.count}</ItemTitle>
+                      <QuantityBtn onClick={increment.bind(this, props, i)}>
+                        +
+                      </QuantityBtn>
+                    </QuanitityFlexContainer>
+                    <ItemTitle>Item total: {itemTotalRounded}</ItemTitle>
+                  </ItemFlexContainer>
+                </ItemInfoWrapper>
+              );
+            })
+          ) : (
+            <ItemTitle>Your cart is empty!</ItemTitle>
+          )}
         </ItemGrid>
       </CartItemsContainer>
       <PaymentContainer totalCalc={totalCalc} />
