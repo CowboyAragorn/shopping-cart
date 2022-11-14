@@ -17,7 +17,6 @@ const ContactFormContainer = styled.div`
   justify-content: flex-start;
   gap: 40px;
   background-color: ${(props) => props.theme.colors.middleGreen};
-  background-color: red;
   padding: 25px;
   margin: 15px;
   border: none;

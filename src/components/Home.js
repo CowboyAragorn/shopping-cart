@@ -77,7 +77,7 @@ const Home = () => {
             Our best outdoor supplies, ready for all your adventures to come -
             check out the latest deals on the brands you love
           </StyledP>
-          <StyledLink to="./shop">Explore our Collection</StyledLink>
+          <StyledLink to="/shop">Explore our Collection</StyledLink>
         </AdvertContainer>
       </AdvertWrapper>
     </HomeContainer>
