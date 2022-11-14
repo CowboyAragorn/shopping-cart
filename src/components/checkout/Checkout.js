@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import PaymentContainer from "./PaymentContainer";
 
+//TODO: Empty shopping cart display
+
 const CheckoutWrapper = styled.div`
   display: flex;
   min-height: 83%;
