@@ -84,11 +84,11 @@ const Navbar = (props) => {
   return (
     <Nav>
       <TitleContainer>
-        <StoreTitle to="/shopping-cart">The Outdoors Co.</StoreTitle>
+        <StoreTitle to="/shopping-cart/">The Outdoors Co.</StoreTitle>
       </TitleContainer>
       <LinksContainer>
         <StyledListItem>
-          <StyledLink to="/shopping-cart">Home</StyledLink>
+          <StyledLink to="/shopping-cart/">Home</StyledLink>
         </StyledListItem>
         <StyledListItem>
           <StyledLink to="/shop">Shop</StyledLink>
