@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.bc4428da.css","mappings":"AAGA,WAFE,WAKF,CAHA,KAEE,QACF,CACA,MACE,WACF","sources":["App.css"],"sourcesContent":[":root {\n  height: 100%;\n}\nbody {\n  height: 100%;\n  margin: 0;\n}\n#root {\n  height: 100%;\n}\n"],"names":[],"sourceRoot":""}
