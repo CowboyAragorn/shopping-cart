@@ -21,7 +21,7 @@ function App() {
         <BrowserRouter>
           <Navbar cart={cart}></Navbar>
           <Routes>
-            <Route exact path="/" element={<Home />} />
+            <Route path="/shopping-cart" element={<Home />} />
             <Route
               path="/shop"
               element={<Shop cart={cart} setCart={setCart} />}
