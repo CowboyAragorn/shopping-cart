@@ -57,7 +57,7 @@ const ItemFlexContainer = styled.div`
 const QuanitityFlexContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 8px;
 `;
 const ItemImage = styled.img`
   object-fit: contain;
