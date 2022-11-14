@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import PaymentContainer from "./PaymentContainer";
+
 const CheckoutWrapper = styled.div`
   display: flex;
   min-height: 83%;
@@ -40,6 +42,7 @@ const ItemInfoWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
+  padding: 15px;
   width: 70%;
   align-items: flex-end;
   justify-items: center;
@@ -66,23 +69,6 @@ const ItemTitle = styled.p`
   margin: 0;
   font-size: 1.5rem;
 `;
-const CheckoutBtn = styled.button`
-  padding: 14px;
-  font-size: 1.3rem;
-  border-radius: 5px;
-  border: none;
-  color: ${(props) => props.theme.colors.offWhite};
-  background-color: ${(props) => props.theme.colors.middleGreen};
-  font-weight: bold;
-  text-decoration: none;
-  &:hover {
-    cursor: pointer;
-    background-color: ${(props) => props.theme.colors.offWhite};
-    color: ${(props) => props.theme.colors.middleGreen};
-    border: 3pt solid ${(props) => props.theme.colors.middleGreen};
-    padding: 11px;
-  }
-`;
 
 const QuantityBtn = styled.button`
   display: flex;
@@ -100,19 +86,6 @@ const QuantityBtn = styled.button`
   &:hover {
     cursor: pointer;
   }
-`;
-
-const PaymentContainer = styled.div`
-  position: sticky;
-  display: flex;
-  top: 15px;
-  flex-direction: column;
-  justify-content: center;
-  align-self: flex-start;
-  width: 30%;
-  padding: 15px;
-  margin-right: 15px;
-  background-color: white;
 `;
 
 const removeItem = (props, i) => {
@@ -188,17 +161,7 @@ const Checkout = (props) => {
           })}
         </ItemGrid>
       </CartItemsContainer>
-      <PaymentContainer>
-        <StyledHeader>Order Summary</StyledHeader>
-        <ItemTitle>Subtotal: ${totalCalc}</ItemTitle>
-        <ItemTitle>Standard Shipping: FREE</ItemTitle>
-        <ItemTitle>Estimated Taxes: --</ItemTitle>
-        <ItemTitle>Total: ${totalCalc}</ItemTitle>
-        <ItemTitle>
-          Total Savings: ${Math.floor(((totalCalc / 7) * 100) / 100)}
-        </ItemTitle>
-        <CheckoutBtn>Check Out</CheckoutBtn>
-      </PaymentContainer>
+      <PaymentContainer totalCalc={totalCalc} />
     </CheckoutWrapper>
   );
 };

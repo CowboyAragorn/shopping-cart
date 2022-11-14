@@ -8,8 +8,7 @@ import Contact from "./components/Contact";
 import { ThemeProvider } from "styled-components";
 import theme from "./theme";
 import Footer from "./components/Footer";
-import styled from "styled-components";
-import Checkout from "./components/Checkout";
+import Checkout from "./components/checkout/Checkout";
 
 //React router changes page based on user selected page
 
