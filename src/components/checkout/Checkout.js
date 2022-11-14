@@ -79,13 +79,16 @@ const QuantityBtn = styled.button`
   color: ${(props) => props.theme.colors.middleGreen};
   font-weight: bold;
   font-size: 1rem;
-  padding: 10px;
+  padding: 13px;
   height: 15px;
   width: 15px;
-  border: 1pt solid black;
   border-radius: 50%;
+  border: 1pt solid ${(props) => props.theme.colors.middleGreen};
   &:hover {
     cursor: pointer;
+    background-color: ${(props) => props.theme.colors.middleGreen};
+    color: white;
+    border: 1pt solid ${(props) => props.theme.colors.middleGreen};
   }
 `;
 

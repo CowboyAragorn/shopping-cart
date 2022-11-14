@@ -24,7 +24,7 @@ const shopItems = [
     count: 0,
   },
   {
-    name: "Katadyn BeFree 1.0: Water Filter Bottle",
+    name: "Katadyn BeFree: Water Filter Bottle",
     price: 49.99,
     img: require("../images/waterFilter.jpeg"),
     count: 0,
